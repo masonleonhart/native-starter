@@ -6,12 +6,12 @@ import logger from "redux-logger";
 
 // Redux 
 
-import listReducer from "./assets/redux/reducers/list.reducer";
-import rootSaga from "./assets/redux/sagas/_root.saga";
+import listReducer from "./src/redux/reducers/list.reducer";
+import rootSaga from "./src/redux/sagas/_root.saga";
 
 // Components
 
-import Header from "./assets/components/Header/Header";
+import Header from "./src/components/Header/Header";
 
 // React middleware
 

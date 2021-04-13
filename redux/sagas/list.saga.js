@@ -3,8 +3,8 @@ import axios from "axios";
 
 function* fetchListSaga() {
   try {
-    const response = axios.get("http://localhost:5000/api/list/");
-    console.log(response.data)
+    const response = yield axios.get("http://localhost:5000/api/list/");
+    yield console.log(response.data);
   } catch (error) {
     console.log("error in fetching list", error);
   }

@@ -1,21 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import createSagaMiddlware from "redux-saga";
+import logger from "redux-logger";
+
+import rootReducer from "./redux/reducers/_root.reducer";
+import rootSaga from "./redux/sagas/_root.saga";
+
+import Timer from "./components/Timer";
+
+const sagaMiddleware = createSagaMiddlware();
+
+const middlewareList =
+  process.env.NODE_ENV === "development"
+    ? [sagaMiddleware, logger]
+    : [sagaMiddleware];
+
+const store = createStore(rootReducer, applyMiddleware(...middlewareList));
+
+sagaMiddleware.run(rootSaga);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <Timer />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

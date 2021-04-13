@@ -1,5 +1,7 @@
 const pg = require("pg");
 
+// Sets config based on enviornment
+
 let config = {};
 
 if (process.env.DATABASE_URL) {
@@ -16,6 +18,8 @@ if (process.env.DATABASE_URL) {
         idleTimeoutMillis: 30000
     }; 
 };
+
+// Creates a pool variable that connects to postgres
 
 const pool = new pg.Pool(config);
 

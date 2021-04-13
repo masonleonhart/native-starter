@@ -4,10 +4,16 @@ import { Provider } from "react-redux";
 import createSagaMiddlware from "redux-saga";
 import logger from "redux-logger";
 
-import rootReducer from "./assets/redux/reducers/_root.reducer";
+// Redux 
+
+import listReducer from "./assets/redux/reducers/list.reducer";
 import rootSaga from "./assets/redux/sagas/_root.saga";
 
+// Components
+
 import Header from "./assets/components/Header/Header";
+
+// React middleware
 
 const sagaMiddleware = createSagaMiddlware();
 
@@ -16,7 +22,7 @@ const middlewareList =
     ? [sagaMiddleware, logger]
     : [sagaMiddleware];
 
-const store = createStore(rootReducer, applyMiddleware(...middlewareList));
+const store = createStore(listReducer, applyMiddleware(...middlewareList));
 
 sagaMiddleware.run(rootSaga);
 

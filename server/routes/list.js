@@ -4,6 +4,8 @@ const pool = require("../modules/pool");
 
 // CREATE
 
+  // Creates a new list entry
+
 router.post("/", (req, res) => {
   const sqlQuery = `INSERT INTO "list" ("content")
                         VALUES ($1);`;
@@ -21,6 +23,8 @@ router.post("/", (req, res) => {
 });
 
 // READ
+
+  // Retrieves all list entries
 
 router.get("/", (req, res) => {
   const sqlQuery = `SELECT * FROM "list";`;

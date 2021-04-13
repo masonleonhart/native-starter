@@ -3,12 +3,16 @@ import { StyleSheet, Text, View } from "react-native";
 
 const Header = () => {
 
+  // Renders our header component
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Native To Do List</Text>
     </View>
   );
 };
+
+// Styles for the header component
 
 const styles = StyleSheet.create({
   container: {

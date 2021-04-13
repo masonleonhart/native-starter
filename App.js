@@ -4,10 +4,10 @@ import { Provider } from "react-redux";
 import createSagaMiddlware from "redux-saga";
 import logger from "redux-logger";
 
-import rootReducer from "./redux/reducers/_root.reducer";
-import rootSaga from "./redux/sagas/_root.saga";
+import rootReducer from "./assets/redux/reducers/_root.reducer";
+import rootSaga from "./assets/redux/sagas/_root.saga";
 
-import Header from "./components/Header/Header";
+import Header from "./assets/components/Header/Header";
 
 const sagaMiddleware = createSagaMiddlware();
 

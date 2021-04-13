@@ -7,7 +7,7 @@ import logger from "redux-logger";
 import rootReducer from "./redux/reducers/_root.reducer";
 import rootSaga from "./redux/sagas/_root.saga";
 
-import Timer from "./components/Timer";
+import Header from "./components/Header/Header";
 
 const sagaMiddleware = createSagaMiddlware();
 
@@ -23,7 +23,7 @@ sagaMiddleware.run(rootSaga);
 export default function App() {
   return (
     <Provider store={store}>
-      <Timer />
+      <Header />
     </Provider>
   );
 }

@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
   // Retrieves all list entries
 
 router.get("/", (req, res) => {
-  const sqlQuery = `SELECT * FROM "list";`;
+  const sqlQuery = `SELECT * FROM "list" ORDER BY "timestamp" DESC;`;
 
   pool
     .query(sqlQuery)

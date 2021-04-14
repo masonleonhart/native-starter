@@ -1,0 +1,5 @@
+CREATE TABLE "list" (
+	"id" SERIAL PRIMARY KEY,
+	"content" VARCHAR (100) NOT NULL,
+	"timestamp" TIMESTAMP DEFAULT NOW()
+);

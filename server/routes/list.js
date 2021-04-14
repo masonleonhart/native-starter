@@ -4,11 +4,18 @@ const pool = require("../modules/pool");
 
 // CREATE
 
-  // Creates a new list entry
+// Creates a new list entry
 
 router.post("/", (req, res) => {
   const sqlQuery = `INSERT INTO "list" ("content")
                         VALUES ($1);`;
+
+  if (!req.body.content) {
+    console.log("Invalid entry");
+
+    res.sendStatus(400);
+    return;
+  }
 
   pool
     .query(sqlQuery, [req.body.content])
@@ -24,7 +31,7 @@ router.post("/", (req, res) => {
 
 // READ
 
-  // Retrieves all list entries
+// Retrieves all list entries
 
 router.get("/", (req, res) => {
   const sqlQuery = `SELECT * FROM "list" ORDER BY "timestamp" DESC;`;

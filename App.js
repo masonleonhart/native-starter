@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import createSagaMiddlware from "redux-saga";
 import logger from "redux-logger";
 
-// Redux 
+// Redux
 
 import listReducer from "./src/redux/reducers/list.reducer";
 import rootSaga from "./src/redux/sagas/_root.saga";
@@ -12,6 +12,7 @@ import rootSaga from "./src/redux/sagas/_root.saga";
 // Components
 
 import Header from "./src/components/Header/Header";
+import Main from "./src/components/Main/Main";
 
 // React middleware
 
@@ -30,6 +31,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <Header />
+      <Main />
     </Provider>
   );
 }

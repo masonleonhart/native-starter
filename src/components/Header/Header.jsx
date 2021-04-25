@@ -1,14 +1,14 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
+import { Appbar } from "react-native-paper";
 
 const Header = () => {
-
   // Renders our header component
 
   return (
-    <View style={styles.container}>
+    <Appbar.Header>
       <Text style={styles.headerText}>Native To Do List</Text>
-    </View>
+    </Appbar.Header>
   );
 };
 
@@ -19,13 +19,14 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "flex-end",
     backgroundColor: "blue",
-    height: "12%"
+    height: "12%",
   },
   headerText: {
     color: "white",
     margin: "2%",
-    fontSize: 35
-  }
+    fontSize: 35,
+    textAlign: "center"
+  },
 });
 
 export default Header;

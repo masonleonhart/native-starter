@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 
+import { TextInput, Button, Text } from "react-native-paper";
+
 import {
   StyleSheet,
-  Text,
+  // Text,
   View,
-  TextInput,
-  Button,
+  // TextInput,
+  // Button,
   ScrollView,
 } from "react-native";
 
@@ -32,20 +34,22 @@ const Main = () => {
     <View style={styles.container}>
       <Text>Add an Entry</Text>
       <TextInput
-        style={styles.input}
+        mode="outlined"
         placeholder="placeholder"
         value={newEntryContent}
         onChangeText={(text) => setNewEntryContent(text)}
       />
-      <Button title="Submit" onPress={handleNewEntrySubmit} />
-      <ScrollView style={styles.scrollView}>
+      <View>
+        <Button onPress={handleNewEntrySubmit}>Submit</Button>
+      </View>
+      <ScrollView>
         <View style={styles.scrollViewHeader}>
           <Text>Content</Text>
           <Text>Date</Text>
         </View>
         <View style={styles.scrollViewBody}>
           {list.map((entry) => (
-            <View style={styles.scrollViewRow}>
+            <View key={entry.id} style={styles.scrollViewRow}>
               <Text>{entry.content}</Text>
               <Text>{moment(entry.timestamp).format("MM-DD-YYYY")}</Text>
             </View>
@@ -60,20 +64,8 @@ const Main = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-  },
-  input: {
-    borderStyle: "solid",
-    borderColor: "black",
-    borderWidth: 1,
-    borderRadius: 3,
-    minWidth: 100,
-    margin: 10,
-  },
-  scrollView: {
-    margin: 10,
-    minWidth: "90%",
+    width: "100%",
+    padding: 10,
   },
   scrollViewHeader: {
     flex: 1,

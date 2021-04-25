@@ -1,6 +1,7 @@
 import React from "react";
+import { Provider as PaperProvider } from "react-native-paper";
 import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
+import { Provider as StoreProvider } from "react-redux";
 import createSagaMiddlware from "redux-saga";
 import logger from "redux-logger";
 
@@ -14,7 +15,7 @@ import rootSaga from "./src/redux/sagas/_root.saga";
 import Header from "./src/components/Header/Header";
 import Main from "./src/components/Main/Main";
 
-// React middleware
+// Redux middleware
 
 const sagaMiddleware = createSagaMiddlware();
 
@@ -29,9 +30,11 @@ sagaMiddleware.run(rootSaga);
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <Header />
-      <Main />
-    </Provider>
+    <StoreProvider store={store}>
+      <PaperProvider>
+        <Header />
+        <Main />
+      </PaperProvider>
+    </StoreProvider>
   );
 }
